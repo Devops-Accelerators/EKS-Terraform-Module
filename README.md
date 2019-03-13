@@ -1,4 +1,4 @@
-# Mindtree-Devops-EKS
+# EKS-Terraform
 **EKS setup using Terraform**
 
 **What is EKS ?**
@@ -15,7 +15,7 @@ Amazon Elastic Container Service for Kubernetes (Amazon EKS) makes it easy to de
 ```
 1. Create VPC.
 2. Create 2 Subnets.
-3. Internet gateway attacahed to VPC.
+3. Internet gateway attached to VPC.
 4. Route table for VPC.
 5. Route table association.
 6. Create IAM and attach 2 policy.
