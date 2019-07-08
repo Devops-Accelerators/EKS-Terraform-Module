@@ -27,6 +27,9 @@ module "worker" {
   cluster_version = "${module.master.cluster_version}"
   cluster_endpoint = "${module.master.cluster_endpoint}"
   cluster_certificate = "${module.master.cluster_certificate}"
+  instance_type	= "${var.instance_type}"
+  no_of_instances = "${var.no_of_instances}"
+  min_no_instances = "${var.min_no_instances}"
 }
 
 output "kubeconfig" {
