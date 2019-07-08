@@ -17,7 +17,6 @@ variable "cluster_certificate" {
 }
 
 variable "subnet_ids" {
-  type = "list"
 }
 
 variable "instance_type" {

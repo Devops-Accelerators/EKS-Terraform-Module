@@ -45,7 +45,7 @@ resource "aws_autoscaling_group" "terraform_ag" {
   max_size             = "${var.no_of_instances}"
   min_size             = "${var.min_no_instances}"
   name                 = "terraform-eks-terraform"
-  vpc_zone_identifier  = ["${var.subnet_ids}"]
+  vpc_zone_identifier  = "${var.subnet_ids}"
 
   tag {
     key                 = "Name"

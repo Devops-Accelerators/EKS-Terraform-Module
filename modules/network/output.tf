@@ -3,6 +3,6 @@ output "vpc_id" {
 }
 
 output "subnet_ids" {
-    value = ["${aws_subnet.terraform_sub.*.id}"]
+    value = "${aws_subnet.terraform_sub.*.id}"
 }
 
