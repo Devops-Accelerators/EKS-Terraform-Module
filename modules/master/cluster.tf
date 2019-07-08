@@ -1,3 +1,4 @@
+# Creates master clusterwith the IAM Role to manage master
 resource "aws_eks_cluster" "terraform_cluster" {
   name     = "${var.cluster-name}"
   role_arn = "${aws_iam_role.terraform-cluster.arn}"

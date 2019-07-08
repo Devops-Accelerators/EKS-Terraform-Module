@@ -4,12 +4,13 @@
 #  * Internet Gateway
 #  * Route Table and association
 
-
+# Datasource to get all AWS Region
 data "aws_region" "current" {}
 
+#Datasource to get all availability zone for the region
 data "aws_availability_zones" "available" {}
 
-
+# Create a VPC
 resource "aws_vpc" "terraform_vpc" {
   cidr_block = "10.0.0.0/16"
 
@@ -21,6 +22,7 @@ resource "aws_vpc" "terraform_vpc" {
   }"
 }
 
+# Create the Subnet
 resource "aws_subnet" "terraform_sub" {
   count = 2
 
@@ -36,6 +38,7 @@ resource "aws_subnet" "terraform_sub" {
   }"
 }
 
+# Create a internet-gateway in the VPC created
 resource "aws_internet_gateway" "terraform_ig" {
   vpc_id = "${aws_vpc.terraform_vpc.id}"
 
@@ -44,6 +47,7 @@ resource "aws_internet_gateway" "terraform_ig" {
   }
 }
 
+# Create a route table in the VPC created and attach the gateway
 resource "aws_route_table" "terraform_rt" {
   vpc_id = "${aws_vpc.terraform_vpc.id}"
 
@@ -53,6 +57,7 @@ resource "aws_route_table" "terraform_rt" {
   }
 }
 
+# Associate Subnet and route table
 resource "aws_route_table_association" "terraform_rta" {
   count = 2
 
